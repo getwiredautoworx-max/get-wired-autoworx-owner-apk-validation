@@ -1,6 +1,6 @@
 # Get Wired AutoWorx — Owner APK / Store Handover
 
-Updated: 2026-09-29 — Cloudflare Git deployment initiated; production verification pending
+Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user action identified; all outstanding release gates recorded
 
 ## Current execution
 - Owner APK Run #31 build job 109414404862: SUCCESS.
@@ -23,13 +23,19 @@ Updated: 2026-09-29 — Cloudflare Git deployment initiated; production verifica
 - No Cloudflare credits are to be used.
 
 ## Seven release tasks — status
-1. **Owner APK emulator validation:** RUNNING — await terminal result.
-2. **Cloudflare production deployment:** DEPLOYMENT INITIATED — build record exists; success/live URL not yet verified.
-3. **Live authenticated Owner/admin ↔ Supabase test:** BLOCKED on authorized login.
-4. **Cloudflare-hosted customer storefront QA:** BLOCKED until Cloudflare deployment is verified.
-5. **Controlled checkout/order/delivery/payment-reference reconciliation:** BLOCKED on approved live/test payment details and deployed target.
-6. **Physical-device APK installation/validation:** BLOCKED on access to an actual Android device.
-7. **Final security/usability/readiness pass:** Can continue as static review; final release sign-off depends on tasks 1–6.
+1. Owner APK Run #31 emulator validation: RUNNING/PENDING TERMINAL RESULT; never intentionally cancel.
+2. Cloudflare production deployment: FAILED/PENDING CORRECTION; user must change deploy command to the Pages command above, redeploy, then verify live URL.
+3. Live authenticated Owner/admin ↔ Supabase test: BLOCKED on authorized login.
+4. Cloudflare-hosted customer storefront QA: BLOCKED until Cloudflare deployment succeeds.
+5. Controlled checkout/order/delivery/payment-reference reconciliation: BLOCKED on deployed target plus approved payment test details.
+6. Physical-device APK installation/validation: BLOCKED on access to an actual Android device.
+7. Final security/usability/readiness pass: pending; static review may continue, final sign-off depends on gates 1–6.
+
+## Independent work that can continue in parallel
+- Monitor Run #31 emulator status.
+- Prepare final storefront QA and release-evidence checklist.
+- Review remaining repository production configuration issues without redoing completed database work.
+- Update this handover after meaningful state changes.
 
 ## Verified completed foundations
 - Supabase catalogue QA: 4,187 active products; 0 missing SKUs; 0 uncategorized; 0 active zero-stock products; 0 pricing mismatches.
