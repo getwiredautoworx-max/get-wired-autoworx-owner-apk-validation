@@ -1,6 +1,6 @@
 # Get Wired AutoWorx — Owner APK / Store Handover
 
-Updated: 2026-09-29
+Updated: 2026-09-29 — post Owner APK/admin integration
 
 ## APK validation — RUN #23 PASSED
 - GitHub Actions workflow run ID: 36560104394.
@@ -28,10 +28,12 @@ Updated: 2026-09-29
 - JavaScript + DOM storage enabled.
 - File/content access and file chooser support.
 - Back navigation support.
-- Current APK remains a WebView-based Owner shell; emulator validation proves build/install/launch, not completion of the richer Owner management dashboard.
+- Current APK is a WebView-based Owner control surface and now opens the protected store admin portal at `/admin.html` instead of the customer storefront. The admin portal itself was verified in the store repository and provides Supabase Auth OTP login plus order-management RPC controls. Live authenticated execution remains required.
 
 ## Parallel work completed
 - Owner management scope documented.
+- Store code audit completed; existing protected admin portal, checkout, order RPC integration and shipping-quote endpoint verified from the store repository.
+- Owner APK updated to version 1.0.2 / versionCode 3 and routed directly to the protected admin portal.
 - Mobile critical paths documented.
 - Store ↔ Owner data-flow controls documented in `STORE_OWNER_DATA_FLOW.md`.
 - Catalogue/pricelist import controls documented in `CATALOGUE_IMPORT_CONTROL.md`.
@@ -44,8 +46,8 @@ Updated: 2026-09-29
 
 ## Remaining release tasks
 1. Physical-device installation and validation using the validated artifact.
-2. Implement/complete the richer Owner management surface.
-3. Execute Owner ↔ Supabase/store integration checks.
+2. Complete validation of the updated Owner APK build/emulator run.
+3. Execute live authenticated Owner ↔ Supabase/store integration checks.
 4. Execute controlled catalogue/pricelist import and supplier verification against approved source data.
 5. Execute customer storefront QA on the live store.
 6. Execute checkout/payment/order-reference tests with approved payment/test details.
@@ -58,7 +60,7 @@ Updated: 2026-09-29
 - APK validation blocker: RESOLVED.
 - Validated artifact: AVAILABLE.
 - Physical-device testing: NOT STARTED.
-- Owner management surface: IMPLEMENTATION REMAINING.
+- Owner management surface: EXISTING PROTECTED WEB ADMIN PORTAL VERIFIED; APK ROUTING UPDATED; LIVE AUTHENTICATED TEST REMAINS.
 - Store integration: EXECUTION REMAINING.
 - Customer checkout/payment/order testing: EXECUTION REMAINING.
 - Final live-store readiness: REMAINING.
