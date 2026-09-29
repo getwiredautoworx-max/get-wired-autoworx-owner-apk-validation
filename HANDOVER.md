@@ -1,6 +1,6 @@
 # Get Wired AutoWorx — Owner APK / Store Handover
 
-Updated: 2026-09-29 — Netlify credit status confirmed; Cloudflare default reaffirmed
+Updated: 2026-09-29 — Parallel execution instruction and Run #31 emulator continuation recorded
 
 ## APK validation — RUN #23 PASSED
 - GitHub Actions workflow run ID: 36560104394.
@@ -22,7 +22,7 @@ Updated: 2026-09-29 — Netlify credit status confirmed; Cloudflare default reaf
 - Application ID: `za.co.getwiredautoworx.owner`.
 - Launcher activity: `za.co.getwiredautoworx.owner/.MainActivity`.
 - Compile/target SDK 35; minimum SDK 23.
-- Version 1.0.1 / versionCode 2.
+- Version 1.0.2 / versionCode 3.
 - INTERNET permission confirmed.
 - HTTPS production-store loading.
 - JavaScript + DOM storage enabled.
@@ -48,6 +48,18 @@ Updated: 2026-09-29 — Netlify credit status confirmed; Cloudflare default reaf
 - No Cloudflare credits used. Cloudflare remains the default hosting/deployment path; deployment remains pending Cloudflare authorization/secrets configuration.
 - Netlify credit status checked and confirmed from the user's Netlify dashboard: published sites remain live, but production deploys and Agent Runners are paused; remaining balance is operational credits that cannot be spent on production deploys.
 
+## PARALLEL EXECUTION INSTRUCTION — 2026-09-29
+
+- Continue all independent release tasks in parallel; do not restart completed work and do not work in circles.
+- **Owner APK Run #31 emulator validation must be allowed to continue until GitHub Actions reaches a terminal SUCCESS or a genuine failure/timeout. Do not intentionally cancel the emulator smoke-test job.**
+- Run #31 build job: SUCCESS.
+- Run #31 emulator job: currently IN PROGRESS after the emulator job was explicitly rerun following the earlier cancellation.
+- Current emulator smoke-test step: IN PROGRESS.
+- If the platform itself cancels/fails the job, inspect the actual failure, correct the cause, and rerun the failed emulator validation rather than treating cancellation as completion.
+- Continue monitoring/verification of all technically executable tasks without claiming completion until verified.
+- Update this handover after each material task completion or blocker resolution.
+- Never use Replit credits, Cloudflare credits, or Netlify production credits for these tasks.
+
 ## Remaining release tasks
 1. Configure/verify the two Cloudflare GitHub repository secrets and complete the first Cloudflare Pages production deployment; do not use paid Cloudflare credits.
 2. Physical-device installation and validation using the validated artifact.
@@ -60,15 +72,16 @@ Updated: 2026-09-29 — Netlify credit status confirmed; Cloudflare default reaf
 9. Production activation only after release-critical checks pass.
 
 ## Current status
-- APK CI build: PASS.
-- APK emulator install/launch validation: PASS.
-- APK validation blocker: RESOLVED.
-- Validated artifact: AVAILABLE.
-- Physical-device testing: NOT STARTED.
+- APK CI build: PASS for Run #31.
+- APK emulator validation: IN PROGRESS for Run #31; emulator smoke-test step is active and must be allowed to reach a terminal result.
+- APK validation blocker: NOT YET RESOLVED FOR THE UPDATED RUN; Run #23 remains the last fully successful emulator validation.
+- Validated previous artifact: AVAILABLE.
+- Physical-device testing: NOT STARTED; requires an actual Android device.
 - Owner management surface: EXISTING PROTECTED WEB ADMIN PORTAL VERIFIED; APK ROUTING UPDATED; LIVE AUTHENTICATED TEST REMAINS.
 - Hosting default: CLOUDFLARE PAGES.
-- Cloudflare production deployment: PENDING AUTHORIZATION/SECRETS CONFIGURATION.
+- Cloudflare production deployment: PENDING USER-SUPPLIED REPOSITORY SECRETS/authorization; no deployment claimed.
 - Netlify production deploys: PAUSED by account credit state; do not consume/upgrade credits for deployment.
+- Supabase catalogue QA reverified 2026-09-29: 4,187 active products, 0 missing SKUs, 0 uncategorized, 0 active zero-stock products, 0 pricing mismatches.
 - Store integration: EXECUTION REMAINING.
 - Customer checkout/payment/order testing: EXECUTION REMAINING.
 - Final live-store readiness: REMAINING.
