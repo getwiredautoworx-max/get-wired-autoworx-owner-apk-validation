@@ -11,6 +11,13 @@ Updated: 2026-09-29 — Seven-task parallel release execution attempted and bloc
 - Cloudflare workflow exists and targets Pages project `get-wired-autoworx-store`.
 - The GitHub connector exposes no repository-secret-management or workflow-dispatch action that can safely supply/verify the Cloudflare secrets from this session. The token must not be requested or pasted into chat.
 
+## Cloudflare deployment resolution path
+- A workable no-secret/no-credit path has been verified from current Cloudflare Pages documentation: **Git integration** can automatically deploy a GitHub repository to Pages after Cloudflare authorizes access to that repository. This avoids the unavailable GitHub repository-secret/workflow-dispatch capability and does not require exposing a Cloudflare API token in chat.
+- Because the existing Pages project was created for direct deployment, current Cloudflare documentation says Git integration cannot be added to an existing Pages application; the clean path is to create a new Pages application using **Connect to Git / Import an existing Git repository**, authorize the GitHub repository, and set production branch to `main`. The existing repository is already prepared for this path.
+- Required user action in Cloudflare dashboard: **Workers & Pages → Create application → Pages → Connect to Git / Import an existing Git repository → GitHub → authorize/select `getwiredautoworx-max/get-wired-autoworx-store` → production branch `main` → no build command for the static root → deploy.**
+- This is now the primary Cloudflare deployment resolution. Do not wait for unavailable GitHub secret-management or workflow-dispatch actions.
+- Do not claim Cloudflare deployment success until Cloudflare shows a completed production deployment and the resulting Pages URL is directly tested.
+
 ## Seven remaining release tasks — status
 1. **Updated Owner APK emulator validation:** RUNNING. Await terminal result.
 2. **Cloudflare production deployment:** BLOCKED on repository authorization/secrets. Workflow is ready; deployment is not claimed.
