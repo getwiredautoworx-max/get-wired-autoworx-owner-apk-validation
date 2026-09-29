@@ -29,3 +29,12 @@ The Owner APK now opens `https://getwiredautoworx.co.za/admin.html` rather than 
 - The historical incorrect 1,109-row extraction remains prohibited.
 - No Replit credits used.
 - No Cloudflare credits used.
+
+## Database integration hardening completed
+- Verified production Supabase counts: 4,187 active products, 107 active categories, 4,198 products with stock_quantity > 0, 0 pricing mismatches, 0 active products missing SKU.
+- Verified required RPCs exist: create_store_order, admin_list_orders, admin_update_order.
+- Hardened the three order/admin RPCs with an empty SECURITY DEFINER search_path and fully qualified table references.
+- Corrected order validation so pickup/manual/EFT orders are not rejected solely because the delivery fee is zero; non-negative quoted delivery fees are accepted.
+- Stock is reserved atomically when an order is created and is restored when an order is cancelled, failed or refunded, with safeguards against repeated restoration.
+- Restricted Owner/admin RPC execution roles; the public create_store_order RPC remains intentionally callable by anonymous storefront users because the customer checkout is public.
+- Supabase security advisor was rechecked. The remaining SECURITY DEFINER warning for create_store_order is intentional because the public storefront must call it; admin RPCs are not anonymous-callable.
