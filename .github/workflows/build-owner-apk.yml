@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+      - ci-actions-check-20260929
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 permissions:
   contents: read
