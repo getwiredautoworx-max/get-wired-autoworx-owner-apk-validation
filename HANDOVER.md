@@ -39,10 +39,16 @@ Updated: 2026-09-29
 - Existing production storefront package remains: `Get_Wired_AutoWorx_Storefront_Stage2_Live.zip`, with live catalogue loading, search, category filtering, mobile storefront and browser cart.
 - Production database/store has not been modified as part of isolated APK validation.
 
-## Newly completed — parallel planning/execution
-- Added `OWNER_APP_REMAINING_IMPLEMENTATION.md` to the validation repository.
-- Documented the remaining Owner management surface, mobile critical paths, store integration checks, customer checkout/payment/order checks, and release controls.
-- This plan explicitly keeps the production store isolated while APK validation is running.
+## Completed — parallel alternate tasks
+- Added `OWNER_APP_REMAINING_IMPLEMENTATION.md` documenting the Owner management surface, mobile critical paths, store integration, storefront release checks and release controls.
+- Audited the APK architecture and confirmed the current shell's capabilities and limitations.
+- Defined the Owner dashboard/data-management scope without altering production.
+- Defined mobile critical-path tests.
+- Defined Store ↔ Owner integration checks.
+- Defined customer storefront release checks.
+- Defined checkout/payment/order lifecycle checks.
+- Added `ALTERNATE_TASKS_EXECUTION_STATUS.md` recording the alternate work completed while emulator validation runs.
+- Confirmed these alternate tasks can proceed without consuming Replit or Cloudflare credits.
 
 ## Remaining — immediate APK validation
 1. Finish run #11 emulator smoke test.
@@ -52,30 +58,22 @@ Updated: 2026-09-29
 5. Recover APK artifact/checksum after successful validation.
 6. Update this handover and notify the user only after validation is actually complete.
 
-## Remaining — parallel work after validation
-1. Physical-device APK installation/testing.
+## Remaining — parallel work
+1. Build/implement the complete Owner management surface without destabilizing the validated APK shell.
+2. Map Owner operations to the existing production data model.
+3. Finalize safe catalogue/pricelist import and verification workflow.
+4. Finalize Owner ↔ store integration checks.
+5. Prepare customer storefront QA test cases.
+6. Prepare checkout/payment/order lifecycle validation.
+7. Prepare physical-device APK test procedure.
+
+## Remaining — after APK validation
+1. Install and test the validated APK on a physical Android device.
 2. Test launch, WebView loading, navigation, file picker and Owner/store interaction.
-3. Review/implement the complete Owner management surface:
-   - authentication
-   - dashboard
-   - products/SKU/pricing/stock
-   - categories/subcategories
-   - vehicle fitment
-   - catalogue/pricelist import
-   - supplier/source verification
-   - orders/order references
-   - customers
-   - store settings
-4. Complete Owner ↔ store integration checks.
-5. Complete customer storefront critical-path checks:
-   - navigation/categories
-   - search/product detail
-   - fitment
-   - cart
-   - checkout/payment
-   - order confirmation/reference
-   - mobile/error handling
-6. Final production readiness/security/usability checks.
+3. Complete Owner dashboard implementation/integration.
+4. Complete customer storefront critical-path checks.
+5. Verify checkout/payment/order-reference flows.
+6. Perform final production security/usability/readiness checks.
 7. Production activation only after release-critical checks pass.
 
 ## Explicit project constraints
@@ -94,7 +92,7 @@ Updated: 2026-09-29
 - Emulator install/launch smoke test: IN PROGRESS.
 - Full APK validation: PENDING emulator completion.
 - Physical-device testing: NOT STARTED.
-- Owner management surface: PLANNED / IMPLEMENTATION REMAINING.
-- Store/app integration: REMAINING.
-- Customer checkout/payment/order testing: REMAINING.
+- Owner management surface: SCOPE DEFINED / IMPLEMENTATION REMAINING.
+- Store/app integration: SCOPE DEFINED / VALIDATION REMAINING.
+- Customer checkout/payment/order testing: TEST SCOPE DEFINED / EXECUTION REMAINING.
 - Final live-store readiness: REMAINING.
