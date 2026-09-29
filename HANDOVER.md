@@ -14,8 +14,20 @@ Updated: 2026-09-29
 - Build job in run #11 completed successfully.
 
 ## Current task
-- Run #11 emulator job is executing API 35 Android validation.
-- Next required checks: emulator boot, APK build/install, Owner app launch smoke test, then artifact/validation confirmation.
+- Run #11 emulator job is executing the Android installation and launch smoke test.
+- Required final checks: emulator completion, APK install, Owner app launch confirmation, and final validation artifact confirmation.
+
+## Parallel work completed
+- Parallel APK code/workflow audit completed while emulator validation continues.
+- Confirmed package/application ID: za.co.getwiredautoworx.owner.
+- Confirmed launcher activity: za.co.getwiredautoworx.owner/.MainActivity.
+- Confirmed target/compile SDK 35, min SDK 23, version 1.0.1.
+- Confirmed current APK is a WebView-based Owner shell loading the production store URL and supports WebView file selection.
+- Confirmed emulator workflow uses API 35 Google APIs x86_64 without a hard-coded AVD profile.
+
+## Parallel remaining work
+- After smoke validation succeeds, recover the APK artifact and perform live-device testing.
+- Continue Owner app/store integration checks and final live-store readiness checks.
 
 ## Rules
 - Do not use Replit credits.
