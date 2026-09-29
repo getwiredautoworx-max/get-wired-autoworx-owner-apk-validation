@@ -1,6 +1,6 @@
 # Get Wired AutoWorx — Owner APK / Store Handover
 
-Updated: 2026-09-29 — post Owner APK/admin integration
+Updated: 2026-09-29 — Cloudflare set as default hosting path
 
 ## APK validation — RUN #23 PASSED
 - GitHub Actions workflow run ID: 36560104394.
@@ -33,7 +33,8 @@ Updated: 2026-09-29 — post Owner APK/admin integration
 ## Parallel work completed
 - Owner management scope documented.
 - Store code audit completed; existing protected admin portal, checkout, order RPC integration and shipping-quote endpoint verified from the store repository.
-- Netlify hosting verified: production deploy is READY but is still on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` and reports no deployed functions; current repository changes therefore still require a real source deployment before live storefront/checkout QA can be signed off. Netlify environment configuration was also verified and points to the correct Supabase project; no payment/shipping secret credentials were added or altered.
+- Netlify hosting: existing published site remains live, but the team is now operating on operational credits; Netlify production deploys and Agent Runners are paused. Netlify is therefore no longer the default deployment path. Existing Netlify production remains on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` with no deployed functions. Netlify environment configuration remains verified against the correct Supabase project; no payment/shipping secret credentials were added or altered.
+- Cloudflare Pages is now the DEFAULT deployment path for the store. GitHub Actions workflow `.github/workflows/cloudflare-pages-deploy.yml` is present in `get-wired-autoworx-store`, targeting Cloudflare Pages project `get-wired-autoworx-store` on `main`. Required repository secrets are `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. No Cloudflare credits are to be used.
 - Production order RPCs hardened and verified: corrected delivery-fee validation, atomic stock reservation/restoration, pinned SECURITY DEFINER search paths, and tighter RPC execution roles. Remaining public create_store_order SECURITY DEFINER advisory is intentional for anonymous storefront checkout.
 - Owner APK updated to version 1.0.2 / versionCode 3 and routed directly to the protected admin portal.
 - Mobile critical paths documented.
@@ -44,17 +45,18 @@ Updated: 2026-09-29 — post Owner APK/admin integration
 - Physical-device QA checklist documented in `PHYSICAL_DEVICE_QA.md`.
 - Production store/database was not modified.
 - No Replit credits used.
-- No Cloudflare credits used.
+- No Cloudflare credits used. Cloudflare is now the default hosting/deployment path; deployment remains pending Cloudflare authorization/secrets configuration.
 
 ## Remaining release tasks
-1. Physical-device installation and validation using the validated artifact.
-2. Complete validation of the updated Owner APK build/emulator run.
-3. Execute live authenticated Owner ↔ Supabase/store integration checks.
-4. Execute controlled catalogue/pricelist import and supplier verification against approved source data.
-5. Execute customer storefront QA on the live store.
-6. Execute checkout/payment/order-reference tests with approved payment/test details.
-7. Final production security/usability/readiness pass.
-8. Production activation only after release-critical checks pass.
+1. Configure/verify the two Cloudflare GitHub repository secrets and complete the first Cloudflare Pages production deployment; do not use paid Cloudflare credits.
+2. Physical-device installation and validation using the validated artifact.
+3. Complete validation of the updated Owner APK build/emulator run.
+4. Execute live authenticated Owner ↔ Supabase/store integration checks.
+5. Execute controlled catalogue/pricelist import and supplier verification against approved source data.
+6. Execute customer storefront QA on the Cloudflare-hosted live store.
+7. Execute checkout/payment/order-reference tests with approved payment/test details.
+8. Final production security/usability/readiness pass.
+9. Production activation only after release-critical checks pass.
 
 ## Current status
 - APK CI build: PASS.
@@ -63,6 +65,8 @@ Updated: 2026-09-29 — post Owner APK/admin integration
 - Validated artifact: AVAILABLE.
 - Physical-device testing: NOT STARTED.
 - Owner management surface: EXISTING PROTECTED WEB ADMIN PORTAL VERIFIED; APK ROUTING UPDATED; LIVE AUTHENTICATED TEST REMAINS.
+- Hosting default: CLOUDFLARE PAGES.
+- Cloudflare production deployment: PENDING AUTHORIZATION/SECRETS CONFIGURATION.
 - Store integration: EXECUTION REMAINING.
 - Customer checkout/payment/order testing: EXECUTION REMAINING.
 - Final live-store readiness: REMAINING.
