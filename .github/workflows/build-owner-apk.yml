@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+      - ci-actions-check-20260929
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,7 +22,36 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Build debug APK
         run: gradle --version && gradle assembleDebug
+      - name: Record APK checksum
+        run: sha256sum app/build/outputs/apk/debug/*.apk | tee apk-sha256.txt
       - uses: actions/upload-artifact@v4
         with:
           name: get-wired-owner-debug
-          path: app/build/outputs/apk/debug/*.apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            apk-sha256.txt
+
+  emulator:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build debug APK for emulator
+        run: gradle assembleDebug
+      - name: Run Android emulator smoke test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: Pixel_2
+          script: |
+            adb install -r app/build/outputs/apk/debug/app-debug.apk
+            adb shell am start -n za.co.getwiredautoworx.owner/.MainActivity
+            sleep 8
+            adb shell dumpsys activity activities | grep -q za.co.getwiredautoworx.owner
