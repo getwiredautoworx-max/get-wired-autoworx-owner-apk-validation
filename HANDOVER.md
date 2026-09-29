@@ -1,6 +1,6 @@
 # Get Wired AutoWorx — Owner APK / Store Handover
 
-Updated: 2026-09-29 — Cloudflare set as default hosting path
+Updated: 2026-09-29 — Netlify credit status confirmed; Cloudflare default reaffirmed
 
 ## APK validation — RUN #23 PASSED
 - GitHub Actions workflow run ID: 36560104394.
@@ -33,8 +33,8 @@ Updated: 2026-09-29 — Cloudflare set as default hosting path
 ## Parallel work completed
 - Owner management scope documented.
 - Store code audit completed; existing protected admin portal, checkout, order RPC integration and shipping-quote endpoint verified from the store repository.
-- Netlify hosting: existing published site remains live, but the team is now operating on operational credits; Netlify production deploys and Agent Runners are paused. Netlify is therefore no longer the default deployment path. Existing Netlify production remains on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` with no deployed functions. Netlify environment configuration remains verified against the correct Supabase project; no payment/shipping secret credentials were added or altered.
-- Cloudflare Pages is now the DEFAULT deployment path for the store. GitHub Actions workflow `.github/workflows/cloudflare-pages-deploy.yml` is present in `get-wired-autoworx-store`, targeting Cloudflare Pages project `get-wired-autoworx-store` on `main`. Required repository secrets are `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. No Cloudflare credits are to be used.
+- Netlify hosting: existing published site remains live, but the team is now operating on operational credits only; Netlify explicitly reports that production deploys and Agent Runners are paused. Netlify is therefore no longer the default deployment path and no Netlify production deployment should be attempted while paused. Existing Netlify production remains on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` with no deployed functions. Netlify environment configuration remains verified against the correct Supabase project; no payment/shipping secret credentials were added or altered.
+- Cloudflare Pages is now the DEFAULT deployment path for the store, with Netlify retained only as the currently live legacy host until Cloudflare deployment is authorized and verified. GitHub Actions workflow `.github/workflows/cloudflare-pages-deploy.yml` is present in `get-wired-autoworx-store`, targeting Cloudflare Pages project `get-wired-autoworx-store` on `main`. Required repository secrets are `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. No Cloudflare credits are to be used.
 - Production order RPCs hardened and verified: corrected delivery-fee validation, atomic stock reservation/restoration, pinned SECURITY DEFINER search paths, and tighter RPC execution roles. Remaining public create_store_order SECURITY DEFINER advisory is intentional for anonymous storefront checkout.
 - Owner APK updated to version 1.0.2 / versionCode 3 and routed directly to the protected admin portal.
 - Mobile critical paths documented.
@@ -45,7 +45,8 @@ Updated: 2026-09-29 — Cloudflare set as default hosting path
 - Physical-device QA checklist documented in `PHYSICAL_DEVICE_QA.md`.
 - Production store/database was not modified.
 - No Replit credits used.
-- No Cloudflare credits used. Cloudflare is now the default hosting/deployment path; deployment remains pending Cloudflare authorization/secrets configuration.
+- No Cloudflare credits used. Cloudflare remains the default hosting/deployment path; deployment remains pending Cloudflare authorization/secrets configuration.
+- Netlify credit status checked and confirmed from the user's Netlify dashboard: published sites remain live, but production deploys and Agent Runners are paused; remaining balance is operational credits that cannot be spent on production deploys.
 
 ## Remaining release tasks
 1. Configure/verify the two Cloudflare GitHub repository secrets and complete the first Cloudflare Pages production deployment; do not use paid Cloudflare credits.
@@ -67,6 +68,7 @@ Updated: 2026-09-29 — Cloudflare set as default hosting path
 - Owner management surface: EXISTING PROTECTED WEB ADMIN PORTAL VERIFIED; APK ROUTING UPDATED; LIVE AUTHENTICATED TEST REMAINS.
 - Hosting default: CLOUDFLARE PAGES.
 - Cloudflare production deployment: PENDING AUTHORIZATION/SECRETS CONFIGURATION.
+- Netlify production deploys: PAUSED by account credit state; do not consume/upgrade credits for deployment.
 - Store integration: EXECUTION REMAINING.
 - Customer checkout/payment/order testing: EXECUTION REMAINING.
 - Final live-store readiness: REMAINING.
