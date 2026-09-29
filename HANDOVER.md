@@ -33,7 +33,7 @@ Updated: 2026-09-29 — post Owner APK/admin integration
 ## Parallel work completed
 - Owner management scope documented.
 - Store code audit completed; existing protected admin portal, checkout, order RPC integration and shipping-quote endpoint verified from the store repository.
-- Netlify hosting verified: production deploy is READY but is still on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` and reports no deployed functions; current repository changes therefore still require a real source deployment before live storefront/checkout QA can be signed off.
+- Netlify hosting verified: production deploy is READY but is still on store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` and reports no deployed functions; current repository changes therefore still require a real source deployment before live storefront/checkout QA can be signed off. Netlify environment configuration was also verified and points to the correct Supabase project; no payment/shipping secret credentials were added or altered.
 - Production order RPCs hardened and verified: corrected delivery-fee validation, atomic stock reservation/restoration, pinned SECURITY DEFINER search paths, and tighter RPC execution roles. Remaining public create_store_order SECURITY DEFINER advisory is intentional for anonymous storefront checkout.
 - Owner APK updated to version 1.0.2 / versionCode 3 and routed directly to the protected admin portal.
 - Mobile critical paths documented.
