@@ -14,6 +14,8 @@ Updated: 2026-09-29
 
 ## Parallel tasks completed
 - Owner architecture/code audit.
+- Store repository code audit and production Supabase order-RPC hardening verification.
+- Netlify production deploy state verified; current deployed build is older and contains no deployed functions, so live checkout QA remains gated on a real source deployment.
 - Owner management scope.
 - Mobile critical-path scope.
 - Store ↔ Owner data-flow control document: `STORE_OWNER_DATA_FLOW.md`.
@@ -27,7 +29,7 @@ Updated: 2026-09-29
 
 ## Still requiring execution
 - Physical-device installation and validation using the validated artifact.
-- Implement/complete the richer Owner management surface; current APK remains a WebView shell.
+- Owner management surface: protected web admin portal exists; APK now routes to `/admin.html` and version 1.0.2 / versionCode 3 is in CI validation.
 - Execute Owner ↔ Supabase/store integration checks.
 - Execute controlled catalogue/pricelist import and supplier verification against approved source data.
 - Execute customer storefront QA on the live store.
