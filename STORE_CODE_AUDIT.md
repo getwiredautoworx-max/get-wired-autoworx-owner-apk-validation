@@ -38,3 +38,10 @@ The Owner APK now opens `https://getwiredautoworx.co.za/admin.html` rather than 
 - Stock is reserved atomically when an order is created and is restored when an order is cancelled, failed or refunded, with safeguards against repeated restoration.
 - Restricted Owner/admin RPC execution roles; the public create_store_order RPC remains intentionally callable by anonymous storefront users because the customer checkout is public.
 - Supabase security advisor was rechecked. The remaining SECURITY DEFINER warning for create_store_order is intentional because the public storefront must call it; admin RPCs are not anonymous-callable.
+
+## Hosting verification
+- Netlify project `get-wired-autoworx-store` exists and its current production deploy is READY.
+- Current Netlify production deploy ID: `6aa98a8a679a4a0008e10b58`.
+- That deployed build is from store commit `37654d7c2e8e38dad80f9edf33413aa1be62d1a4` dated 2026-09-24.
+- Netlify reports no functions in that deployed build, so the current deployed site is not yet carrying the repository's newer shipping-quote function.
+- A Netlify deploy action was initiated/validated, but the available Netlify connector requires the repository source directory to be present for the actual upload; no production deploy was falsely marked complete.
