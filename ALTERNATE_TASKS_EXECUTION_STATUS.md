@@ -2,83 +2,35 @@
 
 Updated: 2026-09-29
 
-## Executed while APK emulator validation remains in progress
+## APK validation
+- Run #23 / workflow run ID 36560104394: PASS.
+- Build job: PASS.
+- Emulator job: PASS.
+- Emulator smoke test: PASS.
+- The timeout-controlled emulator job completed successfully; the previous hanging validation condition is resolved.
+- Artifact ID: 11028368736.
+- Artifact digest: sha256:a6f41d87103d28aae941ce871176bfd36a1dccf9071da0bea7a993738d71e894.
+- Handover-file changes are excluded from future workflow triggers.
 
-### 1. APK architecture audit
-- Confirmed the current APK is intentionally a lightweight WebView shell.
-- Confirmed it loads the production HTTPS store URL.
-- Confirmed JavaScript, DOM storage, file/content access and file chooser support.
-- Confirmed Android back navigation support.
-- Confirmed no production database code is embedded in the APK.
-- Result: APK shell is suitable for smoke validation, but should not yet be called the finished Owner management application.
+## Parallel tasks completed
+- Owner architecture/code audit.
+- Owner management scope.
+- Mobile critical-path scope.
+- Store ↔ Owner data-flow control document: `STORE_OWNER_DATA_FLOW.md`.
+- Catalogue/pricelist import control: `CATALOGUE_IMPORT_CONTROL.md`.
+- Customer storefront QA matrix: `CUSTOMER_STOREFRONT_QA.md`.
+- Checkout/payment/order QA matrix: `CHECKOUT_PAYMENT_ORDER_QA.md`.
+- Physical-device QA checklist: `PHYSICAL_DEVICE_QA.md`.
+- No production database/store mutation performed.
+- No Replit credits used.
+- No Cloudflare credits used.
 
-### 2. Owner management scope defined
-The Owner application must ultimately cover:
-- Protected Owner authentication
-- Dashboard
-- Products/SKU/pricing/stock/status
-- Categories/subcategories
-- Vehicle compatibility
-- Catalogue/pricelist import
-- Supplier/source verification
-- Orders and order references
-- Customers
-- Store settings
-
-### 3. Mobile critical-path scope defined
-- Owner login
-- Dashboard loading
-- Product search/edit
-- Stock updates
-- Catalogue file import
-- Order lookup
-- Customer/order-reference lookup
-- Back navigation
-- Network/error handling
-
-### 4. Store integration scope defined
-- Product/category synchronization
-- VAT + markup pricing integrity
-- Stock propagation
-- Order/customer reference creation
-- Access protection
-- Safe catalogue imports that cannot accidentally overwrite verified production stock
-
-### 5. Customer storefront release scope defined
-- Homepage/navigation
-- Categories/subcategories
-- Search
-- Product details
-- Vehicle fitment
-- Cart
-- Checkout
-- Payment
-- Order confirmation/reference
-- Mobile responsiveness
-- Error handling
-
-### 6. Release-control scope defined
-- APK validation remains isolated from production.
-- No Replit credits.
-- No Cloudflare credits.
-- No unnecessary Supabase/RLS changes.
-- Release-critical flows must be checked before production activation.
-
-## What is still safe to execute in parallel
-- Owner dashboard implementation planning and code review.
-- Store/Owner data-flow mapping.
-- Catalogue import/verification workflow design.
-- Customer storefront QA checklist and test cases.
-- Checkout/payment/order lifecycle mapping.
-- Physical-device APK test preparation.
-
-## Blocked until emulator validation completes
-- Calling the APK fully validated.
-- Treating the current APK artifact as the final validated release.
-- Physical-device validation using the final validated artifact.
-
-## Current validation state
-Run #11:
-- Build: PASS.
-- Artifact: available.
-- Emulator smoke test: still in progress.
+## Still requiring execution
+- Physical-device installation and validation using the validated artifact.
+- Implement/complete the richer Owner management surface; current APK remains a WebView shell.
+- Execute Owner ↔ Supabase/store integration checks.
+- Execute controlled catalogue/pricelist import and supplier verification against approved source data.
+- Execute customer storefront QA on the live store.
+- Execute checkout/payment/order-reference tests with approved payment/test details.
+- Final production security/usability/readiness pass.
+- Production activation only after release-critical checks pass.
