@@ -8,9 +8,9 @@ Updated: 2026-09-29 — Cloudflare Git deployment initiated; production verifica
 - Emulator smoke test must reach terminal SUCCESS or a genuine failure/timeout.
 - Store repository latest known workflow commit: 9985eb8e80fec7a7a9388b10b8018fa3276731e5.
 - Cloudflare Pages Git integration has now been initiated by selecting `get-wired-autoworx-store` from GitHub account `github:321076044`.
-- Cloudflare production build record created: `f68e0e14-01f3-40b6-ae0d-f45f39448a15`.
+- Cloudflare production build record `f68e0e14-01f3-40b6-ae0d-f45f39448a15` FAILED during deployment because the Cloudflare configuration used `npx wrangler deploy` with repository root `.` as Worker assets; Wrangler therefore included `.git/objects/pack/...` (71.6 MiB), exceeding the 25 MiB Workers asset limit.
 - Cloudflare build page: https://dash.cloudflare.com/43ab7b7bd3689458e2d0de39f6e897ca/workers/services/view/get-wired-autoworx-store/production/builds/f68e0e14-01f3-40b6-ae0d-f45f39448a15
-- The Cloudflare deployment has been initiated, but MUST NOT yet be marked as production-successful until Cloudflare reports completed/successful deployment and the resulting live URL is directly tested.
+- The Cloudflare deployment is NOT successful yet. Root cause is confirmed: the current Cloudflare deployment command is invoking Workers asset deployment against the repository root. Corrective action is to use the Pages deployment path (`wrangler pages deploy`) or configure a clean output directory that excludes `.git`; do not use `npx wrangler deploy` against `.`. After correction, verify the new production build and live URL directly.
 - No Cloudflare API token was requested or pasted into chat. The Git integration path avoids the unavailable GitHub repository-secret/workflow-dispatch capability.
 
 ## Cloudflare deployment status
