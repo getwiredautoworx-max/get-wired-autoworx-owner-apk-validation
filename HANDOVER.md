@@ -60,3 +60,13 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 - Authorized Owner/admin credentials for live integration testing.
 - Approved test/payment details for checkout/payment verification.
 - An actual Android device for physical APK validation.
+
+## CONTINUATION CHECKPOINT — 2026-10-07
+- [x] Owner APK source audit found an obsolete Owner WebView URL: `https://getwiredautoworx.co.za/admin.html`.
+- [x] Corrected Owner APK source to canonical `https://www.getwiredauto.co.za/admin.html`.
+- [x] Verified the corrected source contains the canonical domain.
+- [x] Confirmed current Owner APK source is versionCode 3 / versionName 1.0.2, compile/target SDK 35.
+- [x] Confirmed Android manifest requires INTERNET and blocks cleartext traffic.
+- [ ] New APK build/artifact verification is required after the URL correction.
+- [ ] Physical-device acceptance remains required after the APK rebuild.
+- [ ] Functional Owner dashboard/authentication/product/order tests remain pending; no credentials are bypassed.
