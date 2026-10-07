@@ -70,3 +70,11 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 - [ ] New APK build/artifact verification is required after the URL correction.
 - [ ] Physical-device acceptance remains required after the APK rebuild.
 - [ ] Functional Owner dashboard/authentication/product/order tests remain pending; no credentials are bypassed.
+
+
+## 2026-10-07 APK CI FIX
+- Owner APK Run #43 (37643684869): **build job SUCCESS**, emulator job FAILED.
+- Root cause verified from emulator log: the smoke test pushed the APK, then ran `pm path za.co.getwiredautoworx.owner` **before installing the APK**, causing the package-path check to fail.
+- Fixed workflow commit: `cbbbce20eb92e4adae0776c1a77823eb46b97d09`.
+- Correct sequence is now: push APK → install APK → verify package path → launch app → verify activity.
+- A new workflow run should be generated from this workflow fix; current APK artifact remains unverified for emulator QA until the corrected run succeeds.
