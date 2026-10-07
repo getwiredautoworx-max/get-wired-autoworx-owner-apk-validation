@@ -121,3 +121,11 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 
 ### NEXT CHAT
 Start from the master store handover checkpoint dated 2026-10-07. Do not repeat completed APK CI work. Immediate priority is Axxess storefront upload/SSL/public QA, followed by physical APK acceptance and live integration/payment testing. Never claim completion without direct verification.
+
+## 2026-10-07 — SIGNED RELEASE AUTOMATION CHECKPOINT
+- [x] Added runtime-only release signing configuration to `app/build.gradle`; no keystore, password, or signing secret is committed.
+- [x] Extended `.github/workflows/build-owner-apk.yml` with a `signed-release` job.
+- [x] The signed-release job generates a temporary CI keystore, builds `assembleRelease`, verifies the APK with `apksigner`, records SHA-256, and uploads `get-wired-owner-signed-release`.
+- [x] Existing Run #44 debug APK + Android API 35 emulator smoke validation remains successfully verified.
+- [ ] New signed-release artifact must still be physically installed and accepted on the owner's Android device.
+- [ ] If a permanent production signing identity is later required, use an owner-controlled keystore stored as GitHub Actions secrets; never commit it to the repository.
