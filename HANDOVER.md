@@ -87,3 +87,19 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 - [ ] APK artifact/emulator validation remains pending until Run #44 reaches terminal SUCCESS.
 - [ ] Physical Android-device acceptance remains an owner-input task after a verified artifact is available.
 - [x] No Cloudflare, Netlify or Replit credit-dependent deployment was initiated.
+
+## CONTINUATION CHECKPOINT — 2026-10-07 18:20 SAST
+- [x] Run #44 (37644777822) reached terminal SUCCESS.
+- [x] Build job 112872589515 = SUCCESS.
+- [x] Emulator job 112873076541 = SUCCESS.
+- [x] Corrected APK install/launch smoke sequence is therefore verified on the Android emulator.
+- [x] Run #44 artifact 11493167703 is active (not expired), name `get-wired-owner-debug`, digest `sha256:2d151aa2a4d713f33f7512e0d6fe7c06eab4522c69d42acb17fa8b80f569b534`.
+- [x] APK URL correction remains included in the validated build: canonical Owner route is `https://www.getwiredauto.co.za/admin.html`.
+- [ ] Physical Android-device acceptance is still required; this cannot be performed remotely without an actual device.
+- [x] Supabase production project rechecked: ACTIVE_HEALTHY; all inspected public tables have RLS enabled.
+- [x] Supabase security advisor currently reports one WARN: leaked-password protection is disabled. This is an Auth configuration change, not a catalogue/RLS defect; it remains owner/dashboard configuration work because no Auth-settings mutation action is available through the connected Supabase interface.
+- [x] Supabase performance advisor findings are INFO-level unused-index notices; no index was removed because several relate to newer/low-traffic quote/payment functionality and premature deletion could degrade future workloads.
+- [x] Supabase currently exposes the expected store/checkout/shipping Edge Functions, including `shipping-quote`, `store-checkout`, `payment-gateway` and `get-wired-store`.
+- [ ] Axxess XS production upload remains the final hosting execution gate. No Axxess FTP/DirectAdmin credential or file-upload connector is available in this session, so no claim of successful Axxess deployment is made.
+- [ ] Live Owner authentication and controlled order/payment QA require authorised owner credentials and approved test payment details; no credentials or payment data are bypassed or fabricated.
+- [x] No Replit, Cloudflare or Netlify credit-dependent deployment was initiated.
