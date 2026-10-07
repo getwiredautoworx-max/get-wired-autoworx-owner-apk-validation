@@ -103,3 +103,21 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 - [ ] Axxess XS production upload remains the final hosting execution gate. No Axxess FTP/DirectAdmin credential or file-upload connector is available in this session, so no claim of successful Axxess deployment is made.
 - [ ] Live Owner authentication and controlled order/payment QA require authorised owner credentials and approved test payment details; no credentials or payment data are bypassed or fabricated.
 - [x] No Replit, Cloudflare or Netlify credit-dependent deployment was initiated.
+
+
+## 2026-10-07 — NEW-CHAT CONTINUATION BASELINE
+
+- [x] Run #44 (37644777822) is the latest verified APK workflow and is terminal SUCCESS.
+- [x] Build job 112872589515 = SUCCESS; emulator job 112873076541 = SUCCESS.
+- [x] Artifact `get-wired-owner-debug` / ID `11493167703` is active; SHA-256 `2d151aa2a4d713f33f7512e0d6fe7c06eab4522c69d42acb17fa8b80f569b534`.
+- [x] Validated artifact ZIP has been downloaded into the working environment as `/mnt/data/get-wired-owner-debug.zip`.
+- [ ] Physical Android-device installation/acceptance remains outstanding.
+- [x] Canonical Owner route is `https://www.getwiredauto.co.za/admin.html` and the corrected URL is included in the validated Run #44 build.
+- [x] Supabase production project is ACTIVE_HEALTHY; inspected public tables have RLS enabled; expected store/checkout/shipping Edge Functions are present.
+- [ ] Supabase leaked-password protection WARN remains a dashboard/provider configuration task.
+- [x] Axxess XS is the current zero-credit hosting route; DirectAdmin access and the target `public_html` have been confirmed.
+- [ ] Axxess storefront upload, SSL/HTTPS, public browser QA, physical APK testing, live Owner authentication, and controlled payment reconciliation remain outstanding gates.
+- [x] No Replit, Cloudflare, or Netlify credit-dependent deployment was initiated.
+
+### NEXT CHAT
+Start from the master store handover checkpoint dated 2026-10-07. Do not repeat completed APK CI work. Immediate priority is Axxess storefront upload/SSL/public QA, followed by physical APK acceptance and live integration/payment testing. Never claim completion without direct verification.
