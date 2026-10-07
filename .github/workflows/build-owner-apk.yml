@@ -94,7 +94,7 @@ jobs:
           echo "RELEASE_KEY_PASSWORD=$KEY_PASS" >> "$GITHUB_ENV"
           echo "RELEASE_KEY_ALIAS=get-wired-ci" >> "$GITHUB_ENV"
           echo "RELEASE_KEYSTORE=$PWD/app/ci-release.keystore" >> "$GITHUB_ENV"
-          keytool -genkeypair -v -keystore "$PWD/app/ci-release.keystore" -storepass "$STORE_PASS" -keypass "$KEY_PASS" -alias get-wired-ci -keyalg RSA -keysize 2048 -validity 3650 -dname "CN=Get Wired AutoWorx, OU=Owner App, O=Get Wired AutoWorx, L=Durban, ST=KwaZulu-Natal, C=ZA"
+          keytool -genkeypair -v -storetype JKS -keystore "$PWD/app/ci-release.keystore" -storepass "$STORE_PASS" -keypass "$KEY_PASS" -alias get-wired-ci -keyalg RSA -keysize 2048 -validity 3650 -dname "CN=Get Wired AutoWorx, OU=Owner App, O=Get Wired AutoWorx, L=Durban, ST=KwaZulu-Natal, C=ZA"
       - name: Build signed release APK
         run: gradle assembleRelease
       - name: Verify APK signature
