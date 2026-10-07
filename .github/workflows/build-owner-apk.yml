@@ -68,8 +68,8 @@ jobs:
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
             adb push app/build/outputs/apk/debug/app-debug.apk /data/local/tmp/get-wired-owner.apk
-            adb shell pm path za.co.getwiredautoworx.owner
             adb shell pm install -r /data/local/tmp/get-wired-owner.apk
+            adb shell pm path za.co.getwiredautoworx.owner
             adb shell monkey -p za.co.getwiredautoworx.owner 1
             sleep 8
             adb shell dumpsys activity activities | grep -q za.co.getwiredautoworx.owner
