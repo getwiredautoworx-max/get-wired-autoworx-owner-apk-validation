@@ -78,3 +78,12 @@ Updated: 2026-09-29 — Cloudflare deployment root cause confirmed; exact user a
 - Fixed workflow commit: `cbbbce20eb92e4adae0776c1a77823eb46b97d09`.
 - Correct sequence is now: push APK → install APK → verify package path → launch app → verify activity.
 - A new workflow run should be generated from this workflow fix; current APK artifact remains unverified for emulator QA until the corrected run succeeds.
+
+
+## CONTINUATION CHECKPOINT — 2026-10-07 17:36 SAST
+- [x] Corrected workflow commit **cbbbce20eb92e4adae0776c1a77823eb46b97d09** triggered Run **37644777822 (#44)**.
+- [x] Run #44 build job **112872589515 = SUCCESS**.
+- [ ] Run #44 emulator job **112873076541 = IN PROGRESS**, currently in Gradle setup.
+- [ ] APK artifact/emulator validation remains pending until Run #44 reaches terminal SUCCESS.
+- [ ] Physical Android-device acceptance remains an owner-input task after a verified artifact is available.
+- [x] No Cloudflare, Netlify or Replit credit-dependent deployment was initiated.
