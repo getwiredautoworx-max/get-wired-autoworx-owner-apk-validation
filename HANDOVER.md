@@ -129,3 +129,11 @@ Start from the master store handover checkpoint dated 2026-10-07. Do not repeat 
 - [x] Existing Run #44 debug APK + Android API 35 emulator smoke validation remains successfully verified.
 - [ ] New signed-release artifact must still be physically installed and accepted on the owner's Android device.
 - [ ] If a permanent production signing identity is later required, use an owner-controlled keystore stored as GitHub Actions secrets; never commit it to the repository.
+
+
+## AUTOMATED SIGNING FIX — 2026-10-07
+- [x] Run #46 signed-release job failed at :app:packageRelease with: 'KeytoolException ... Given final block not properly padded'.
+- [x] Root cause identified as the generated default PKCS12 keystore being used with separate store/key passwords.
+- [x] Workflow corrected to generate the temporary CI keystore explicitly as JKS.
+- [ ] Corrected workflow run/artifact still requires terminal verification.
+- [ ] Physical-device installation remains owner-input and is not being attempted remotely.
