@@ -137,3 +137,12 @@ Start from the master store handover checkpoint dated 2026-10-07. Do not repeat 
 - [x] Workflow corrected to generate the temporary CI keystore explicitly as JKS.
 - [ ] Corrected workflow run/artifact still requires terminal verification.
 - [ ] Physical-device installation remains owner-input and is not being attempted remotely.
+
+
+## 2026-10-07 — SIGNED RELEASE VERIFICATION FIX
+- [x] Run #47 signed-release reached Gradle `assembleRelease` SUCCESS; temporary JKS signing itself is now working.
+- [x] Run #47 then failed at signature verification because bare `apksigner` was not on PATH: `apksigner: command not found` (exit 127).
+- [x] Fixed workflow commit `e1e0a6ac219dad950629fdb7f5f9f09729b5f0d7` to invoke the Android SDK Build Tools `apksigner` via `$ANDROID_HOME/build-tools/<latest>/apksigner`.
+- [ ] New workflow run must reach terminal SUCCESS and upload the signed-release artifact.
+- [ ] Emulator job from Run #47 remains in progress at this checkpoint; terminal result still requires verification.
+- [ ] Physical-device acceptance remains owner-input.
