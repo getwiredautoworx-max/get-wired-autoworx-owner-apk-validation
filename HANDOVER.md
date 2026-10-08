@@ -163,3 +163,14 @@ Start from the master store handover checkpoint dated 2026-10-07. Do not repeat 
 - [ ] Android emulator smoke test is still running; therefore automated APK validation is not yet terminal-success.
 - [x] Attempted job-log retrieval again; GitHub returned 404 BlobNotFound because the live log blob is unavailable while the job is still running.
 - Recovery: continue polling the same emulator job; retrieve logs once available. No code change made because no failure has been reported.
+
+
+## 2026-10-08 — OWNER APK / STORE PERMISSION CROSS-CHECK
+
+- [x] Cross-checked the current Owner APK validation repository against the live store admin implementation.
+- [x] Canonical admin route remains /admin.html.
+- [x] Admin flow is Supabase Auth OTP followed by authenticated calls to admin_list_orders/admin_update_order.
+- [x] Database privilege review confirms those admin RPCs are not executable by anon/authenticated roles.
+- [x] No APK source change was required by this permission review.
+- [ ] Physical-device installation and acceptance remains owner-side and cannot be truthfully marked complete without the physical Android test.
+- [ ] Public-domain acceptance remains blocked by Axxess DNS.
